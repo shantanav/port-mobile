@@ -135,8 +135,10 @@ const isMediaUri = (uri?: string | null) => {
  * @returns true if the uri is prefixed with avatar:// or is null, false otherwise
  */
 const isAvatarUri = (uri?: string | null) => {
-  const isAvatar = uri ? uri.substring(0, 9) === 'avatar://' : true;
-  return isAvatar;
+  if (!uri) {
+    return true;
+  }
+  return uri.substring(0, 9) === 'avatar://';
 };
 
 /**
