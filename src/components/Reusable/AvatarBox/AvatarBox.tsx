@@ -137,8 +137,9 @@ const isAvatarUri = (uri?: string | null) => {
   if (uri) {
     const isAvatar = uri.substring(0, 9) === 'avatar://';
     return isAvatar;
+  } else {
+    return true;
   }
-  return false;
 };
 
 /**
