@@ -65,7 +65,6 @@ const AddPasswordCard = ({
 
         <View style={styles.inputRow}>
           <SimpleInput
-            style={styles.inputField}
             setText={setPassword}
             text={password}
             bgColor="w"
@@ -79,7 +78,6 @@ const AddPasswordCard = ({
 
         <View style={styles.inputRow}>
           <SimpleInput
-            style={styles.inputField}
             setText={setReenterPassword}
             text={reenterPassword}
             bgColor="w"
@@ -119,10 +117,6 @@ const styles = StyleSheet.create({
   },
   errorText: {
     marginBottom: Spacing.s,
-  },
-  inputField: {
-    alignSelf: undefined,
-    flex: 1,
   },
   visIcon: {
     padding: Spacing.m,

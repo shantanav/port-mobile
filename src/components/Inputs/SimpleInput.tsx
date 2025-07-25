@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  KeyboardTypeOptions,
-  StyleProp,
-  StyleSheet,
-  TextInput,
-  TextStyle,
-  ViewStyle
-} from 'react-native';
+import {KeyboardTypeOptions, StyleSheet, TextInput} from 'react-native';
 
 import {useColors} from '@components/colorGuide';
 import {FontSizeType, FontWeight} from '@components/NumberlessText';
@@ -33,8 +26,6 @@ import {NAME_LENGTH_LIMIT} from '@configs/constants';
  * - Customizable placeholder and background
  */
 
-type Style = StyleProp<TextStyle & ViewStyle>;
-
 const SimpleInput = ({
   text,
   setText,
@@ -45,8 +36,7 @@ const SimpleInput = ({
   isEditable = true,
   autoFocus = false,
   secureTextEntry = false,
-  showError=false,
-  style,
+  showError=false
 }: {
   isEditable?: boolean; 
   text: string;
@@ -57,8 +47,7 @@ const SimpleInput = ({
   keyboardType?: KeyboardTypeOptions;
   autoFocus?: boolean;
   secureTextEntry?: boolean;
-  showError?: boolean;
-  style?: Style
+  showError?: boolean
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const onTextChange = (newText: string) => {
@@ -72,30 +61,21 @@ const SimpleInput = ({
 
   const Colors = useColors();
 
-  const dynamicStyle: TextStyle & ViewStyle = {
-    color: Colors.text.title,
-    borderColor: showError
-      ? Colors.red
-      : isFocused
-        ? Colors.boldAccentColors.purple
-        : Colors.stroke,
-    backgroundColor:
-    bgColor === 'g' ? Colors.background : Colors.surface,
-  };
-
-  const finalInputStyle: Style = [styles.textInput, dynamicStyle, style].reduce(
-    (acc: Style, curr: Style) => (
-      curr
-        ? (StyleSheet.compose(acc, curr) as Style)
-        : acc
-    ), styles.textInput
-  );
 
   return (
     <>
       <TextInput
         editable={isEditable}
-        style={finalInputStyle}
+        style={StyleSheet.compose(styles.textInput, {
+          color: Colors.text.title,
+          borderColor: 
+          showError? Colors.red: 
+           isFocused
+            ? Colors.boldAccentColors.purple
+            : Colors.stroke,
+          backgroundColor:
+            bgColor && bgColor === 'g' ? Colors.background : Colors.surface,
+        })}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholderText}
