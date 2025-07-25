@@ -167,6 +167,7 @@ const CreateBackupScreen = ({ navigation }: Props) => {
       dispatchExport({ type: 'COMPLETE_EXPORT' });
     } catch (error: any) {
       console.error('Backup failed:', error);
+      showToast('Backup creation failed', ToastType.error);
       dispatchExport({ type: 'RESET_EXPORT' });
     }
   };
@@ -180,6 +181,7 @@ const CreateBackupScreen = ({ navigation }: Props) => {
       dispatchExport({ type: 'COMPLETE_EXPORT' });
     } catch (error: any) {
       console.error('Backup failed:', error);
+      showToast('Backup creation failed', ToastType.error);
       dispatchExport({ type: 'RESET_EXPORT' });
     }
   };
