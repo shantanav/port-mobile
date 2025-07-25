@@ -3,14 +3,13 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import GradientCard from '@components/Cards/GradientCard';
 import { useColors } from '@components/colorGuide';
-import SimpleInput from '@components/Inputs/SimpleInput';
+import PasswordInput from '@components/Inputs/PasswordInput';
 import {
   FontSizeType,
   FontWeight,
   NumberlessText,
 } from '@components/NumberlessText';
 import { Spacing } from '@components/spacingGuide';
-import useSVG from '@components/svgGuide';
 
 const AddPasswordCard = ({
   password,
@@ -26,23 +25,6 @@ const AddPasswordCard = ({
   error: string | undefined;
 }) => {
   const color = useColors();
-  const svgArray = [
-    {
-      assetName: 'PasswordHidden',
-      light: require('@assets/light/icons/PasswordHidden.svg').default,
-      dark: require('@assets/dark/icons/PasswordHidden.svg').default,
-    },
-    {
-      assetName: 'PasswordVisible',
-      light: require('@assets/light/icons/PasswordVisible.svg').default,
-      dark: require('@assets/dark/icons/PasswordVisible.svg').default,
-    },
-  ];
-  const svgResults = useSVG(svgArray, color.theme);
-  const PasswordHidden = svgResults.PasswordHidden;
-  const PasswordVisible = svgResults.PasswordVisible;
-  const [showPassword, setShowPassword] = useState(false);
-  const [showReenter, setShowReenter] = useState(false);
 
   return (
     <GradientCard style={styles.card}>
@@ -64,39 +46,32 @@ const AddPasswordCard = ({
         </NumberlessText>
 
         <View style={styles.inputRow}>
-          <SimpleInput
+          <PasswordInput
             setText={setPassword}
             text={password}
-            bgColor="w"
             placeholderText="Enter your password"
-            secureTextEntry={!showPassword}
+            showError={!!error}
           />
-          <Pressable style={styles.visIcon} onPress={() => setShowPassword(v => !v)}>
-            {showPassword ? <PasswordVisible /> : <PasswordHidden />}
-          </Pressable>
         </View>
 
         <View style={styles.inputRow}>
-          <SimpleInput
+          <PasswordInput
             setText={setReenterPassword}
             text={reenterPassword}
-            bgColor="w"
             placeholderText="Re-enter your password"
-            secureTextEntry={!showReenter}
+            showError={!!error}
           />
-          <Pressable style={styles.visIcon} onPress={() => setShowReenter(v => !v)}>
-            {showReenter ? <PasswordVisible /> : <PasswordHidden />}
-          </Pressable>
         </View>
-        {error &&
+
+        {error && (
           <NumberlessText
             style={styles.errorText}
-            textColor={"red"}
+            textColor={'red'}
             fontSizeType={FontSizeType.s}
             fontWeight={FontWeight.rg}>
             {error}
           </NumberlessText>
-        }
+        )}
       </View>
     </GradientCard>
   );
@@ -107,7 +82,8 @@ const styles = StyleSheet.create({
     padding: Spacing.l,
   },
   title: {
-    marginBottom: Spacing.m,
+    marginBottom: Spacing.s,
+    marginTop: Spacing.s,
   },
   inputRow: {
     flexDirection: 'row',
