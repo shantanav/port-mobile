@@ -1,5 +1,6 @@
 import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
 
 import BaseBottomSheet from '@components/BaseBottomsheet';
 import {useColors} from '@components/colorGuide';
