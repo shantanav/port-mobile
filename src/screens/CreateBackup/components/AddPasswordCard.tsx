@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 import GradientCard from '@components/Cards/GradientCard';
 import { useColors } from '@components/colorGuide';

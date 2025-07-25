@@ -1,4 +1,4 @@
-import {BackupIntervalString, DEFAULT_BACKUP_INTERVAL, backupIntervalStrings} from '@utils/Time/interfaces';
+import {BackupIntervalString, DEFAULT_BACKUP_INTERVAL} from '@utils/Time/interfaces';
 
 type BackupReminderState = {
     backupReminderInterval: BackupIntervalString    

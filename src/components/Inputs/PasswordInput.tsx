@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import {
   KeyboardTypeOptions,
+  Pressable,
   StyleProp,
   StyleSheet,
   TextInput,
   TextStyle,
   View,
   ViewStyle,
-  Pressable,
 } from 'react-native';
 
-import useSVG from '@components/svgGuide';
 import { useColors } from '@components/colorGuide';
 import { FontSizeType, FontWeight } from '@components/NumberlessText';
 import { Height, Spacing } from '@components/spacingGuide';
+import useSVG from '@components/svgGuide';
+
 import { NAME_LENGTH_LIMIT } from '@configs/constants';
 
 const PasswordInput = ({

@@ -1,7 +1,7 @@
 /**
  * Default chat tile displayed when there are no connections
  */
-import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { useSelector } from 'react-redux';
@@ -15,7 +15,6 @@ import {
 import { Spacing, Width } from '@components/spacingGuide';
 
 import { formatTimeAgo } from '@utils/Time';
-import { backupIntervals } from '@utils/Time/interfaces';
 
 import Backup from '@assets/icons/GreenBackup.svg';
 import GreenCross from '@assets/icons/GreenCross.svg';
