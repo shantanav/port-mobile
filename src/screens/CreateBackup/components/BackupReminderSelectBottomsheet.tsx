@@ -55,11 +55,12 @@ const BackupReminderSelectBottomsheet = ({
           keyExtractor={(_item, index) => index.toString()}
           data={backupIntervalStrings}
           scrollEnabled={false}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <View style={styles.optionWrapper}>
               <OptionWithRadio
                 selectedOptionComparision={backupIntervals[item]}
                 selectedOption={backupIntervals[currentInterval]}
+                separator={index != backupIntervalStrings.length - 1}
                 title={item}
                 onClick={async () => {
                   await onUpdateBackupInterval(
