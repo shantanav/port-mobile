@@ -12,7 +12,6 @@ import { useColors } from '@components/colorGuide';
 import { CustomStatusBar } from '@components/CustomStatusBar';
 import { GestureSafeAreaView } from '@components/GestureSafeAreaView';
 import { FontSizeType, FontWeight, NumberlessText } from '@components/NumberlessText';
-import BackupReminderSelectBottomsheet from '@components/Reusable/BottomSheets/BackupReminderSelectBottomsheet';
 import { Spacing } from '@components/spacingGuide';
 import GenericBackTopBar from '@components/TopBars/GenericBackTopBar';
 
@@ -28,6 +27,7 @@ import { BackupIntervalString, DEFAULT_BACKUP_INTERVAL } from '@utils/Time/inter
 import { ToastType, useToast } from 'src/context/ToastContext';
 
 import AddPasswordCard from './components/AddPasswordCard';
+import BackupReminderSelectBottomsheet from './components/BackupReminderSelectBottomsheet';
 import ExportBackup from './components/ExportBackup';
 import ExportCloudBackup from './components/ExportCloudBackup';
 import ExportLocalBackup from './components/ExportLocalBackup';
