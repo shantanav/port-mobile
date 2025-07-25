@@ -17,9 +17,7 @@ import GenericBackTopBar from '@components/TopBars/GenericBackTopBar';
 
 import { AppStackParamList } from '@navigation/AppStack/AppStackTypes';
 
-import { getBackupIntervalInStorage, setBackupIntervalInStorage } from '@store/backupReminders';
-
-import { createAndSaveBackup, createAndUploadBackup } from '@utils/Backup';
+import { createAndSaveBackup, createAndUploadBackup, getBackupIntervalInStorage, setBackupIntervalInStorage } from '@utils/Backup';
 import { setBackupTime } from '@utils/Profile';
 import { getChatTileTimestamp } from '@utils/Time';
 import { BackupIntervalString, DEFAULT_BACKUP_INTERVAL } from '@utils/Time/interfaces';

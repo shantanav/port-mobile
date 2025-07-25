@@ -14,8 +14,6 @@ import {
 } from '@components/NumberlessText';
 import { Spacing, Width } from '@components/spacingGuide';
 
-import { getBackupIntervalInStorage } from '@store/backupReminders';
-
 import { formatTimeAgo } from '@utils/Time';
 import { backupIntervals } from '@utils/Time/interfaces';
 
@@ -47,15 +45,8 @@ function BackupReminder({
     onBackupPress: () => void,
     onClosePress: () => void
 }): ReactNode {
-
+    const interval = useSelector(state => state.backups.backupReminderInterval);
     const profile = useSelector(state => state.profile.profile);
-    const [interval, setInterval] = useState<number>(0);
-
-    useEffect(() => {
-        getBackupIntervalInStorage().then(intervalString => { // Yes, I used .then - fight me Abhi
-            setInterval(backupIntervals[intervalString]);
-        });
-    }, []);
 
     const { showReminder, reminderText } = useMemo(() => {
         if (hideReminder) {

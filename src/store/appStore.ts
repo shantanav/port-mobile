@@ -1,6 +1,6 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 
-import backupReminderReducer from './backupReminders';
+import backups from './backups';
 import latestCallReducer from './call';
 import connectionErrors from './connectionErrors';
 import connectionFsSyncMutex from './connectionFsSyncMutex';
@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
   latestCallReducer,
   connectionErrors,
   developerMode,
-  backupReminderReducer,
+  backups,
 });
 
 const store = configureStore({
