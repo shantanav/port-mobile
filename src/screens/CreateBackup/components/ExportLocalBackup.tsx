@@ -52,7 +52,7 @@ const ExportLocalBackup = ({
                     textColor={color.text.subtitle}
                     fontSizeType={FontSizeType.s}
                     fontWeight={FontWeight.rg}>
-                    By managing your backup yourself, you accept the potential of losing your account if your backup file is compromised.
+                    By managing your backup yourself, you accept the potential of losing your account if your backup file is lost.
                 </NumberlessText>
                 <View style={{ gap: Spacing.s, marginTop: Spacing.m, justifyContent: 'center', alignItems: 'center' }}>
                     <PrimaryButton
