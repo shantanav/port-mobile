@@ -1,5 +1,3 @@
-
-
 import {NativeModules} from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -428,10 +426,13 @@ export async function setBackupIntervalInStorage(backupInterval: BackupIntervalS
  */
 export async function getBackupIntervalInStorage(): Promise<BackupIntervalString> {
   const value = await AsyncStorage.getItem('BackupReminderInterval');
+  // Check value exists and is valid interval string, else fall back to default
+  const interval: BackupIntervalString = (
+    value && backupIntervalStrings.includes(value as BackupIntervalString)
+      ? value
+      : DEFAULT_BACKUP_INTERVAL
+  ) as BackupIntervalString;
 
-  if (value && backupIntervalStrings.includes(value as BackupIntervalString)) {
-    return value as BackupIntervalString;
-  }
-
-  return DEFAULT_BACKUP_INTERVAL;
+  store.dispatch({ type: 'UPDATE_REMINDER_INTERVAL', newInterval: interval });
+  return interval;
 }
