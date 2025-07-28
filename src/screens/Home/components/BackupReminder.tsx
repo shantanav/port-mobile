@@ -62,7 +62,7 @@ function BackupReminder({
                     : 'You haven\'t backed up your chats yet. Backup now to avoid losing your data.'
                 };
         }
-    }, [hideReminder, lastBackupTime, profile]);
+    }, [hideReminder, lastBackupTime, profile, interval]);
 
     return (
         showReminder
